@@ -10,7 +10,7 @@ Usage:  python3 build.py
 import pathlib, re
 
 ROOT = pathlib.Path(__file__).parent
-SITE_URL = "https://marcusw9.github.io/Portfolio/"   # update if you use a custom domain
+SITE_URL = "https://marcusw9.github.io/portfolio/"   # update if you use a custom domain
 DESC = ("Marcus Wong — Senior Product Manager in London. Marketplaces, 0→1 platforms "
         "and AI-led delivery. £12m+ GMV marketplace launch, £300K saved with an AI-built MVP.")
 

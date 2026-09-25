@@ -2,7 +2,7 @@
 
 Personal portfolio for Marcus Wong, Senior Product Manager (London).
 
-**Live site:** https://marcusw9.github.io/Portfolio/ (once GitHub Pages is enabled)
+**Live site:** https://marcusw9.github.io/portfolio/ (once GitHub Pages is enabled)
 
 ## Structure
 
