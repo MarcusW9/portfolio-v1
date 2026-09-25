@@ -292,8 +292,10 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
 .status i{background:var(--good)}
 
 /* ---------- hero: matte aurora ---------- */
-.au{position:relative;overflow:hidden;isolation:isolate;min-height:calc(100vh - 58px);min-height:calc(100svh - 58px);display:flex;flex-direction:column;background:var(--paper)}
+.au{position:relative;overflow:hidden;isolation:isolate;min-height:calc(100vh - 58px);min-height:calc(100svh - 58px);max-height:none;display:flex;flex-direction:column;background:var(--paper)}
 .au-sky{position:absolute;inset:-15%;z-index:-1;pointer-events:none;will-change:transform}
+.au{-webkit-mask-image:none}
+.au::after{content:"";position:absolute;left:0;right:0;bottom:0;height:18%;z-index:-1;pointer-events:none;background:linear-gradient(to bottom,color-mix(in srgb,var(--paper) 0%,transparent),var(--paper))}
 .au-layer{position:absolute;inset:0}
 .au-layer.soft{opacity:.55;filter:saturate(.8)}
 .au-layer.vivid{background:linear-gradient(125deg,#E9B6A1 0%,#DDA9AE 28%,#B7C3DA 55%,#BCCDAE 78%,#EACF95 100%);filter:saturate(1.5) contrast(1.04);
@@ -311,7 +313,7 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
 @keyframes au3{to{transform:translate(16vw,-16vh) scale(1.2)}}
 @keyframes au4{to{transform:translate(-26vw,-12vh) scale(1.1)}}
 @keyframes au5{to{transform:translate(-14vw,20vh) scale(1.25)}}
-.au-body{flex:1;display:flex;align-items:flex-start;padding-block:clamp(28px,5vh,56px) clamp(40px,7vh,80px)}
+.au-body{flex:1;display:flex;align-items:center;padding-block:clamp(16px,3.5vh,44px) clamp(16px,3vh,40px)}
 .au-text{max-width:860px;width:100%;min-width:0}
 .au-kicker{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0}
 .au-kicker .status{display:inline-flex;align-items:center;gap:8px}
@@ -320,12 +322,12 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
 .au h1 .w{display:inline-block;animation:auIn 1.5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 150ms + 120ms)}
 .au h1 .acc{color:var(--clay)}
 @keyframes auIn{from{opacity:.001;transform:translateY(14px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
-.au-why{margin:0;max-width:44ch;font-size:clamp(17px,1.55vw,20px);line-height:1.6;color:var(--muted);animation:auIn 1.5s .65s both}
-.au-tags{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:28px 0 0;padding:0;animation:auIn 1.5s .8s both}
+.au-why{margin:0;max-width:44ch;font-size:clamp(18px,min(1.7vw,2.9vh),24px);line-height:1.45;font-style:italic;letter-spacing:.005em;color:var(--muted);animation:auIn 1.5s .65s both}
+.au-tags{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:clamp(14px,2.8vh,28px) 0 0;padding:0;animation:auIn 1.5s .8s both}
 .au-tags li{font-size:13px;padding:6px 14px;border-radius:99px;border:1px solid color-mix(in srgb,var(--ink) 16%,transparent);background:color-mix(in srgb,var(--surface) 45%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-.au-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;animation:auIn 1.5s .95s both}
+.au-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(16px,3.2vh,34px);animation:auIn 1.5s .95s both}
 .au-ctas .btn{justify-content:center;white-space:nowrap}
-.au-links{display:flex;flex-wrap:wrap;gap:8px 22px;margin:24px 0 0;font-family:var(--mono);font-size:12.5px;color:var(--muted);animation:auIn 1.5s 1.05s both}
+.au-links{display:flex;flex-wrap:wrap;gap:8px 22px;margin:clamp(10px,2vh,20px) 0 0;font-family:var(--mono);font-size:12.5px;color:var(--muted);animation:auIn 1.5s 1.05s both}
 .au-links a{color:var(--ink);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--ink) 25%,transparent)}
 .au-links span{user-select:all;-webkit-user-select:all}
 .au-photo{justify-self:end;width:min(100%,320px);margin:0}
@@ -334,17 +336,17 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
 @keyframes auArch{from{clip-path:inset(100% 0 0 0 round 999px 999px 22px 22px)}to{clip-path:inset(0 0 0 0 round 999px 999px 22px 22px)}}
 @keyframes auImg{from{transform:translateY(8%) scale(1.04)}to{transform:none}}
 .au-photo figcaption{margin-top:12px;font-family:var(--mono);font-size:11.5px;color:var(--muted);text-align:center}
-.au-metrics{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid color-mix(in srgb,var(--ink) 30%,transparent);margin-bottom:clamp(40px,8vh,88px)}
-.au-metrics div{padding:28px 16px 4px 0}
+.au-metrics{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid color-mix(in srgb,var(--ink) 30%,transparent);margin-bottom:clamp(14px,3vh,36px)}
+.au-metrics div{padding:clamp(12px,2.2vh,24px) 16px 4px 0}
 .au-metrics div + div{padding-left:28px;border-left:1px solid color-mix(in srgb,var(--ink) 10%,transparent)}
-.au-metrics strong{display:block;font-family:var(--display);font-weight:900;font-size:clamp(2.1rem,3.8vw,3.2rem);line-height:1;font-variant-numeric:tabular-nums}
+.au-metrics strong{display:block;font-family:var(--display);font-weight:900;font-size:clamp(1.9rem,min(3.4vw,5.4vh),3rem);line-height:1;font-variant-numeric:tabular-nums}
 .au-metrics div:nth-child(1) strong{color:var(--accent)}
 .au-metrics div:nth-child(2) strong{color:var(--clay)}
 .au-metrics div:nth-child(3) strong{color:var(--good)}
 .au-metrics div:nth-child(4) strong{color:var(--sun)}
 .au-metrics span{display:block;font-size:13.5px;color:var(--muted);line-height:1.35;margin-top:4px}
 @media (max-width:860px){
-  .au-body{padding-block:56px 48px}
+  .au-body{padding-block:32px 28px}
   .au .au-n{font-size:19vw}
   .au-metrics{grid-template-columns:1fr 1fr}
   .au-metrics div:nth-child(3){padding-left:0;border-left:0}
@@ -355,11 +357,67 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
 
 
 /* name + tagline */
-.au .au-n{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(4.4rem,12.5vw,12.5rem);line-height:.84;margin:18px 0 0;color:var(--ink);display:flex;flex-wrap:wrap;column-gap:.22em}
+.au .au-n{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(4rem,min(12.5vw,19vh),12.5rem);line-height:.84;margin:clamp(10px,1.8vh,18px) 0 0;color:var(--ink);display:flex;flex-wrap:wrap;column-gap:.22em}
 .au-n .w{white-space:nowrap}
-.au-tag{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(2rem,4.4vw,4rem);line-height:.95;margin:22px 0 30px;animation:auIn 1.5s .45s both}
+.au-tag{display:flex;flex-wrap:wrap;align-items:center;gap:.1em .45em;font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(1.8rem,min(3.6vw,5.6vh),3.4rem);line-height:.95;letter-spacing:.02em;margin:clamp(12px,2.2vh,22px) 0 clamp(10px,1.8vh,18px);animation:auIn 1.5s .45s both}
 .au-tag .acc{color:var(--clay)}
+.au-tag i{width:2px;height:.72em;background:color-mix(in srgb,var(--ink) 25%,transparent);border-radius:2px}
 @media (prefers-reduced-motion:reduce){.au-tag{animation:none}}
+
+/* ---------- calm pass ---------- */
+.sec-head h2{font-size:clamp(2rem,3.6vw,3rem);line-height:.95;margin:8px 0 0;color:var(--ink)}
+.sec-head{align-items:flex-end}
+.contact h2{font-size:clamp(3rem,7vw,6rem);line-height:.9}
+.contact h2,.contact h2 span{color:var(--ink)}
+.au-focus{margin:clamp(14px,2.6vh,26px) 0 0;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;color:var(--muted);animation:auIn 1.5s .8s both}
+.tags{display:block;font-size:15px;line-height:1.6;color:var(--ink)}
+.tags li{display:inline;border:0;background:none;padding:0;border-radius:0;font-size:15px}
+.tags li:not(:last-child)::after{content:", "}
+.au-metrics strong,.au-metrics div:nth-child(n) strong,.metric strong,.impact strong,.impact div:nth-child(n) strong{color:var(--ink)}
+.impact{background:none;border:0;border-top:1px solid var(--line);border-radius:0;gap:0;margin-top:6px;overflow:visible}
+.impact div{background:none;padding:14px 16px 0 0}
+.impact div + div{padding-left:16px;border-left:1px solid var(--line)}
+.tl{min-height:0}
+.tl ul{margin:6px 0 0}
+
+/* ---------- colour + motion back ---------- */
+.sec-head h2{font-size:clamp(2.6rem,6vw,5rem);line-height:.88}
+.sec-head h2 .ln,.contact h2 .ln{display:block}
+.sec-head h2 .ln:nth-child(2),.contact h2 .ln:nth-child(2){color:var(--clay)}
+.contact h2{font-size:clamp(3.4rem,9vw,7.5rem);line-height:.86}
+.au-why{font-style:normal}
+.au-ctas{align-items:center}
+.au-ctas .au-links{margin:0 0 0 10px;display:inline-flex;gap:18px;animation:none}
+.au-metrics div:nth-child(1) strong{color:var(--accent)}
+.au-metrics div:nth-child(2) strong{color:var(--clay)}
+.au-metrics div:nth-child(3) strong{color:var(--good)}
+.au-metrics div:nth-child(4) strong{color:var(--sun)}
+.impact strong,.impact div:nth-child(n) strong{color:var(--clay)}
+.case-tags li{background:color-mix(in srgb,var(--clay) 10%,var(--paper));border-color:color-mix(in srgb,var(--clay) 25%,transparent)}
+@media (max-width:560px){.au-ctas .au-links{margin:6px 0 0;flex-basis:100%}}
+
+/* ---------- turntable ---------- */
+.au-deck{display:none;margin:0}
+.au-deck svg{display:block;width:100%;height:auto;overflow:visible}
+.dk-stk text{font-family:var(--display);font-weight:900;font-size:15px;letter-spacing:.05em}
+.dk-stk{filter:drop-shadow(0 2px 2px rgba(46,40,38,.18))}
+.dk-stk rect{animation:dkPop .7s cubic-bezier(.3,1.5,.5,1) both;animation-delay:calc(var(--i) * 110ms + 900ms);transform-box:fill-box;transform-origin:center}
+.dk-stk text{animation:dkFade .4s both;animation-delay:calc(var(--i) * 110ms + 1000ms)}
+@keyframes dkPop{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
+@keyframes dkFade{from{opacity:0}to{opacity:1}}
+.dk-ring{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;fill:#F3ECE4;fill-opacity:.55}
+.dk-notes text{opacity:0;animation:dkNote 7.5s ease-in-out infinite}
+.dk-notes text:nth-child(2){animation-delay:2.5s}
+.dk-notes text:nth-child(3){animation-delay:5s}
+@keyframes dkNote{0%{opacity:0;transform:translate(0,10px)}15%{opacity:.85}70%{opacity:.5}100%{opacity:0;transform:translate(18px,-70px)}}
+@media (min-width:1000px){
+  .au-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,440px);gap:clamp(24px,4vw,64px);align-items:center}
+  .au-deck{align-self:center}
+  .au .au-n{font-size:clamp(4rem,min(9.4vw,17vh),10rem)}
+  .au-deck{display:block;justify-self:end;width:100%;animation:auIn 1.8s .5s both}
+}
+@media (prefers-reduced-motion:reduce){.dk-notes text{animation:none;opacity:.6}.au-deck,.dk-stk rect,.dk-stk text{animation:none}}
+
 /* ---------- responsive ---------- */
 @media (max-width:1000px){
   .pillars,.toolkit{grid-template-columns:1fr 1fr}
@@ -434,15 +492,92 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
       <div class="au-text">
         <p class="au-kicker"><span>Senior Product Manager · London</span><span class="status"><i aria-hidden="true"></i>Open to Senior &amp; Lead roles</span></p>
         <h1 class="au-n"><span class="w" style="--i:0">Marcus</span> <span class="w" style="--i:1">Wong</span></h1>
-        <p class="au-tag"><span class="acc">Future-ready</span> product leadership.</p>
-        <p class="au-why">Biology graduate to Senior PM in five years. Five industries, each one learned fast and delivered on: a first revenue product, a £2m retail launch, a £12m+ marketplace and an AI-built platform.</p>
-        <ul class="au-tags" aria-label="Focus areas"><li>0→1 Product Manager</li><li>Product builder</li><li>Vibe coder</li><li>Marketplaces</li><li>AI-led delivery</li><li>B2C &amp; B2B</li></ul>
+        <p class="au-tag"><span>Builder</span><i aria-hidden="true"></i><span class="acc">Leader</span><i aria-hidden="true"></i><span>Learner</span></p>
+        <p class="au-why">Building for the new era of humanity.</p>
         <div class="au-ctas">
           <a class="btn primary" href="#work">View case studies <span aria-hidden="true">↓</span></a>
           <a class="btn ghost" href="#contact">Get in touch</a>
+          <span class="au-links"><a href="https://www.linkedin.com/in/marcus-wong-0451a817b/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://github.com/MarcusW9" target="_blank" rel="noopener">GitHub ↗</a></span>
         </div>
-        <p class="au-links"><a href="https://www.linkedin.com/in/marcus-wong-0451a817b/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://github.com/MarcusW9" target="_blank" rel="noopener">GitHub ↗</a></p>
       </div>
+      <figure class="au-deck" aria-hidden="true">
+        <svg viewBox="0 0 520 440" role="presentation">
+          <defs>
+            <linearGradient id="dkTop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9C6B52"/><stop offset="1" stop-color="#8A5B45"/></linearGradient>
+            <linearGradient id="dkFront" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#77493A"/><stop offset="1" stop-color="#633C30"/></linearGradient>
+            <linearGradient id="dkLid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".42"/><stop offset=".55" stop-color="#FFFFFF" stop-opacity=".16"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".30"/></linearGradient>
+            <linearGradient id="dkSheen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".14"/><stop offset=".45" stop-color="#FFFFFF" stop-opacity="0"/><stop offset=".7" stop-color="#FFFFFF" stop-opacity=".06"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+            <clipPath id="dkLabel"><circle r="44"/></clipPath>
+            <filter id="dkBlur" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="8"/></filter>
+          </defs>
+          <!-- shadow -->
+          <ellipse cx="260" cy="392" rx="245" ry="16" fill="#2E2826" opacity=".22" filter="url(#dkBlur)"/>
+          <!-- dust cover, open -->
+          <rect x="66" y="18" width="388" height="196" rx="10" fill="url(#dkLid)" stroke="#2E2826" stroke-opacity=".14"/>
+          <rect x="236" y="58" width="48" height="14" rx="3" fill="#2E2826" opacity=".75"/>
+          <rect x="100" y="196" width="22" height="16" rx="2" fill="#2E2826" opacity=".8"/>
+          <rect x="398" y="196" width="22" height="16" rx="2" fill="#2E2826" opacity=".8"/>
+          <!-- stickers on the lid -->
+          <g>
+            <g class="dk-stk" style="--i:0" transform="translate(128 64) rotate(-8)"><rect x="-36.0" y="-14" width="72" height="28" rx="7" fill="#B0674F"/><text x="0" y="5.5" text-anchor="middle" fill="#F6EEE8">0→1 PM</text></g>
+            <g class="dk-stk" style="--i:1" transform="translate(372 58) rotate(6)"><rect x="-47.0" y="-14" width="94" height="28" rx="7" fill="#2E2826"/><text x="0" y="5.5" text-anchor="middle" fill="#F6EEE8">£12M+ GMV</text></g>
+            <g class="dk-stk" style="--i:2" transform="translate(300 116) rotate(4)"><rect x="-70.0" y="-14" width="140" height="28" rx="7" fill="#D9B35E"/><text x="0" y="5.5" text-anchor="middle" fill="#2E2826">PRODUCT BUILDER</text></g>
+            <g class="dk-stk" style="--i:3" transform="translate(150 140) rotate(5)"><rect x="-51.0" y="-14" width="102" height="28" rx="7" fill="#8FA886"/><text x="0" y="5.5" text-anchor="middle" fill="#2E2826">AI BUILDER</text></g>
+            <g class="dk-stk" style="--i:4" transform="translate(384 160) rotate(-6)"><rect x="-51.0" y="-14" width="102" height="28" rx="7" fill="#4F6B8A"/><text x="0" y="5.5" text-anchor="middle" fill="#F6EEE8">VIBE CODER</text></g>
+            <g class="dk-stk" style="--i:5" transform="translate(240 176) rotate(-3)"><rect x="-58.5" y="-14" width="117" height="28" rx="7" fill="#E6E1D9"/><text x="0" y="5.5" text-anchor="middle" fill="#2E2826">MARKETPLACES</text></g>
+          </g>
+          <!-- plinth -->
+          <path d="M70 206 H450 L492 334 H28 Z" fill="url(#dkTop)"/>
+          <path d="M28 334 H492 V368 Q492 374 486 374 H34 Q28 374 28 368 Z" fill="url(#dkFront)"/>
+          <g stroke="#FFFFFF" stroke-opacity=".06" stroke-width="1"><path d="M34 345 H300"/><path d="M180 352 H486"/><path d="M40 361 H250"/><path d="M110 240 H400"/><path d="M60 300 H300"/></g>
+          <circle cx="54" cy="354" r="3" fill="#E9DDD2" opacity=".55"/>
+          <ellipse cx="72" cy="377" rx="26" ry="7" fill="#2E2826"/>
+          <ellipse cx="448" cy="377" rx="26" ry="7" fill="#2E2826"/>
+          <!-- platter -->
+          <ellipse cx="225" cy="279" rx="152" ry="61" fill="#B8B0A5"/>
+          <ellipse cx="225" cy="272" rx="152" ry="61" fill="#E6E1D9"/>
+          <!-- record (flat disc squashed into perspective) -->
+          <g transform="translate(225 270) scale(1 .4)">
+            <circle r="141" fill="#2A2523"/>
+            <g fill="none" stroke="#FFFFFF" stroke-opacity=".055">
+              <circle r="134"/><circle r="126"/><circle r="118"/><circle r="110"/><circle r="102"/><circle r="94"/><circle r="86"/><circle r="78"/><circle r="70"/><circle r="62"/><circle r="54"/>
+            </g>
+            <g class="dk-spin">
+              <path id="dkRing" d="M 0 -113 A 113 113 0 1 1 -0.1 -113" fill="none"/>
+              <text class="dk-ring"><textPath href="#dkRing">PRODUCT BUILDER · 0→1 · AI-LED DELIVERY · MARKETPLACES · LEARN · BUILD · SHIP ·</textPath></text>
+              <path d="M 0 -122 A 122 122 0 0 1 86 -86" fill="none" stroke="#FFFFFF" stroke-opacity=".18" stroke-width="3" stroke-linecap="round"/>
+              <path d="M 0 104 A 104 104 0 0 1 -74 73" fill="none" stroke="#FFFFFF" stroke-opacity=".10" stroke-width="2" stroke-linecap="round"/>
+              <g clip-path="url(#dkLabel)">
+                <circle r="44" fill="#B0674F"/>
+                <rect x="-44" y="-9" width="88" height="18" fill="#D9B35E"/>
+                <rect x="-44" y="12" width="88" height="5" fill="#8FA886"/>
+              </g>
+              <circle r="32" fill="none" stroke="#F3ECE4" stroke-opacity=".35"/>
+              <circle cx="0" cy="-37" r="3" fill="#F3ECE4"/>
+              <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="5s" repeatCount="indefinite"/>
+            </g>
+            <circle r="141" fill="url(#dkSheen)"/>
+            <circle r="5" fill="#D9D4CC"/>
+          </g>
+          <!-- tonearm -->
+          <ellipse cx="422" cy="243" rx="24" ry="9" fill="#3A3331"/>
+          <rect x="411" y="222" width="22" height="21" fill="#2E2826"/>
+          <ellipse cx="422" cy="222" rx="11" ry="4.5" fill="#4A4240"/>
+          <g class="dk-arm">
+          <circle cx="446" cy="211" r="10" fill="#2E2826"/>
+          <path d="M446 211 L422 224 L356 294" fill="none" stroke="#D6D0C7" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <g transform="rotate(-38 350 300)"><rect x="336" y="294" width="26" height="11" rx="2" fill="#2E2826"/><rect x="340" y="303" width="10" height="6" fill="#D9B35E"/></g>
+            <animateTransform attributeName="transform" type="rotate" values="0 422 224; 1.4 422 224; 0.2 422 224; -1.1 422 224; 0 422 224" keyTimes="0;.25;.5;.75;1" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1;.45 0 .55 1"/>
+          </g>
+          <rect x="452" y="282" width="6" height="18" rx="2" fill="#2E2826" opacity=".85"/>
+          <!-- notes -->
+          <g class="dk-notes" font-family="Georgia, 'Times New Roman', serif" font-size="30">
+            <text x="318" y="208" fill="#B0674F">♪</text>
+            <text x="352" y="200" fill="#4F6B8A">♫</text>
+            <text x="292" y="196" fill="#5E7F5A">♪</text>
+          </g>
+        </svg>
+      </figure>
     </div>
     <div class="wrap">
       <div class="au-metrics" role="list" aria-label="Headline results">
@@ -455,12 +590,6 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
   </header>
 
 
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span>0→1 Product Manager</span><span>Product builder</span><span>Marketplaces</span><span>Vibe coding</span><span>AI-led delivery</span><span>Build vs buy</span><span>FinTech</span><span>B2C growth</span><span>B2B SaaS</span>
-      <span>0→1 Product Manager</span><span>Product builder</span><span>Marketplaces</span><span>Vibe coding</span><span>AI-led delivery</span><span>Build vs buy</span><span>FinTech</span><span>B2C growth</span><span>B2B SaaS</span>
-    </div>
-  </div>
 
   <!-- ================= WORK ================= -->
   <section class="block wrap" id="work" aria-labelledby="work-h">
@@ -666,7 +795,7 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
   <!-- ================= APPROACH ================= -->
   <section class="block wrap" id="approach" aria-labelledby="ap-h">
     <div class="sec-head">
-      <div><span class="eyebrow">Approach</span><h2 id="ap-h"><span class="ln" data-drift="1">How I</span><span class="ln" data-drift="-1">work</span></h2></div>
+      <div><span class="eyebrow">Approach</span><h2 id="ap-h"><span class="ln" data-drift="-1">How I</span><span class="ln" data-drift="1">work</span></h2></div>
       <p>Four habits that show up in every role I've had, with where you can see each one.</p>
     </div>
     <div class="pillars">
@@ -736,7 +865,7 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
   <!-- ================= CONTACT ================= -->
   <section class="contact wrap" id="contact" aria-labelledby="ct-h">
     <span class="eyebrow">What's next</span>
-    <h2 id="ct-h"><span class="ln" data-drift="-1" style="display:block;color:var(--ink)">Let's</span><span class="ln" data-drift="1" style="display:block">talk.</span></h2>
+    <h2 id="ct-h"><span class="ln" data-drift="-1">Let's</span><span class="ln" data-drift="1">talk.</span></h2>
     <p class="lead">I'm looking for Senior and Lead Product roles in marketplaces, platforms and AI-led products. If you're hiring, building something new, or want to compare notes on AI in product teams, message me on LinkedIn. CV available on request.</p>
     <div class="reach">
       <a class="btn primary" href="https://www.linkedin.com/in/marcus-wong-0451a817b/" target="_blank" rel="noopener">Message me on LinkedIn ↗</a>
@@ -788,7 +917,7 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
     measure();window.addEventListener('resize',measure);
     if(document.fonts&&document.fonts.ready)document.fonts.ready.then(measure);
     window.addEventListener('load',measure);
-    ticker.style.animation='none';
+    if(ticker)ticker.style.animation='none';
   }
 
   function frame(){
@@ -798,15 +927,15 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
     if(!reduce){
       var v=y-lastY;if(v)dir=v>0?1:-1;lastY=y;
       // ticker: speeds up with scroll, flips with direction
-      var half=ticker.scrollWidth/2;tickX-=0.35;
+      if(ticker){var half=ticker.scrollWidth/2;tickX-=0.35;
       if(tickX<=-half)tickX+=half;if(tickX>0)tickX-=half;
-      ticker.style.transform='translateX('+tickX.toFixed(1)+'px)';
+      ticker.style.transform='translateX('+tickX.toFixed(1)+'px)';}
       // split headings drift apart
       lines.forEach(function(el){
         var b=el.parentNode.getBoundingClientRect();
         if(b.bottom<-200||b.top>vh+200)return;
         var c=(b.top+b.height/2)/vh-.5;c=Math.max(-.8,Math.min(.8,c));
-        el.style.transform='translate3d('+(+el.dataset.drift*c*vw*.05).toFixed(1)+'px,0,0)';
+        el.style.transform='translate3d('+(+el.dataset.drift*c*vw*.1).toFixed(1)+'px,0,0)';
       });
       // pinned horizontal career
       if(over>0){
@@ -859,6 +988,9 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
     if(hb.bottom>0)setLens(lx,ly,r);
     requestAnimationFrame(loop);})(0);
 })();
+</script>
+<script>
+(function(){if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){var d=document.querySelector('.au-deck svg');if(d&&d.pauseAnimations)d.pauseAnimations();}})();
 </script>
 </body>
 </html>
